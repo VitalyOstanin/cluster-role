@@ -71,9 +71,10 @@ Defaults to 1.
 * `port` (optional) : A port assignment for all workers of this role, or 'auto' to use an automatic allocation.
 This sets `process.env.PORT` in worker processes, but workers may choose not to respect it.
 
-Additionally, a custom worker directory can be specified.
+Additionally, a custom worker directory and external logger can be specified.
 * `dir` (optional) : The name of a directory where all worker JS files reside. Defaults to a subdirectory named `worker`
 under the same directory as the JS that initiated `spawn()`.
+* `extLog` (optional) : External logger object, should support methods: `error()`, `warn()`, `info()`. Defaults to `console`.
 
 #### .onListen(role, callback)
 Receive port listening events from workers of a given role. Note that this is triggered when the first member worker of the role starts listening on a port.
